@@ -9,7 +9,7 @@
       "includeMergedTags": true,
       "gitTagVersion": false,
       "message": "chore: publish versions",
-      "push": true,
+      "push": false,
       "json": true,
       "yes": true,
       "allowBranch": "main"
