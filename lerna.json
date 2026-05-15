@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "npmClient": "yarn",
+  "version": "1.0.0",
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "conventionalGraduate": true,
+      "includeMergedTags": true,
+      "gitTagVersion": false,
+      "message": "chore: publish versions",
+      "push": true,
+      "json": true,
+      "yes": true,
+      "allowBranch": "main"
+    }
+  }
+}

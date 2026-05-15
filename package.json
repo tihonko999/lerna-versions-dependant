@@ -1,0 +1,20 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "publish:versions:script": "sh ./scripts/release.sh",
+    "publish:versions:manual": "yarn lerna version",
+    "publish:versions:execa": "yarn tsx ./scripts/versions.mts"
+  },
+  "devDependencies": {
+    "execa": "^9.6.1",
+    "@types/node": "^22.13.14",
+    "lerna": "^9.0.7",
+    "prettier": "^3.8.0",
+    "tsx": "^4.21.1",
+    "typescript": "^6.0.3"
+  }
+}
