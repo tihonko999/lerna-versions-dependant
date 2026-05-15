@@ -11,6 +11,7 @@
       "json": true,
       "yes": true,
       "allowBranch": "main",
+      "forcePublish": true,
       "push": true,
       "gitTagVersion": true
     }
