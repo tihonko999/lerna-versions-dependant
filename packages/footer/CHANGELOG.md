@@ -5,12 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.0.3](https://github.com/tihonko999/lerna-versions-dependant/compare/v1.0.2...v1.0.3) (2026-05-15)
 
-**Note:** Version bump only for package root
-
-## 1.0.2 (2026-05-15)
-
-**Note:** Version bump only for package root
-
-## 1.0.1 (2026-05-15)
-
-**Note:** Version bump only for package root
+**Note:** Version bump only for package footer
