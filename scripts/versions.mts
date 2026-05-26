@@ -1,20 +1,24 @@
 import {
-  createTagName,
+  // createTagName,
   getJiraIssueId,
   logError,
   isOnMainBranch,
   hasUncommitedChanges,
-  createCommitDescription,
+  // createCommitDescription,
   gitPullOriginMain,
   gitFetchTags,
-  gitCreateCommit,
-  gitCreateTag,
-  gitPush,
+  getChangedPackages,
+  // gitCreateCommit,
+  // gitCreateTag,
+  // gitPush,
   lernaVersion,
 } from './versions.utils.mts';
 import { MAIN_BRANCH_NAME } from './versions.constants.mts';
 
 const main = async () => {
+  await getChangedPackages();
+  return;
+
   // Проверка текущей ветки
   if (!(await isOnMainBranch())) {
     logError(`Необходимо находиться на ветке: ${MAIN_BRANCH_NAME}`);
