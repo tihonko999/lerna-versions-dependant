@@ -8,15 +8,16 @@
   "scripts": {
     "publish:versions:script": "sh ./scripts/release.sh",
     "publish:versions:manual": "yarn lerna version",
-    "publish:versions:execa": "yarn tsx ./scripts/versions.mts",
-    "v": "yarn tsx ./scripts/versions.mts"
+    "publish:versions:execa": "yarn ts-node ./scripts/versions.mts",
+    "v": "yarn ts-node ./scripts/versions.mts"
   },
   "devDependencies": {
     "execa": "^9.6.1",
-    "@types/node": "^22.13.14",
-    "lerna": "^9.0.7",
+    "@types/node": "^20.19.5",
+    "lerna": "^8.2.4",
     "prettier": "^3.8.0",
-    "tsx": "^4.21.1",
-    "typescript": "^6.0.3"
-  }
+    "ts-node": "^10.0.0",
+    "typescript": "^5.6.3"
+  },
+  "packageManager": "yarn@4.9.4"
 }
