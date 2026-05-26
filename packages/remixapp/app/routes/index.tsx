@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <>
       <Header />
-      <div>Remixapp 6</div>
+      <div>Remixapp 7</div>
       <Footer />
     </>
   );
