@@ -16,9 +16,6 @@ import {
 import { MAIN_BRANCH_NAME } from './versions.constants.mts';
 
 const main = async () => {
-  await getChangedPackages();
-  return;
-
   // Проверка текущей ветки
   if (!(await isOnMainBranch())) {
     logError(`Необходимо находиться на ветке: ${MAIN_BRANCH_NAME}`);
@@ -39,6 +36,13 @@ const main = async () => {
   const jiraIssueId = await getJiraIssueId();
   if (!jiraIssueId) {
     logError('Не найден jiraIssueId в пространстве RLS');
+    return;
+  }
+
+  // Нет изменений пакетов
+  const changes = await getChangedPackages();
+  if (!changes || changes.length === 0) {
+    logError('Нет изменений в пакетах для версионирования');
     return;
   }
 

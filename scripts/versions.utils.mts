@@ -73,14 +73,23 @@ export const logInfo = (msg: string) => {
 };
 
 export const getChangedPackages = async () => {
-  const { stdout } = await execa`
-    yarn lerna changed
-      --json
-      --all
-      --include-merged-tags
-      --conventional-graduate
-    `;
-  console.log(stdout);
+  try {
+    // TODO: оставить или убрать --conventional-graduate ?
+    const { stdout } = await execa`
+      yarn lerna changed
+        --json
+        --all
+        --include-merged-tags
+        --conventional-graduate
+      `;
+    const result = JSON.parse(stdout);
+    if (Array.isArray(result)) {
+      return result as { name: string }[];
+    }
+    console.log(stdout);
+  } catch {
+    return undefined;
+  }
 };
 
 // stdout - вывод lerna с флагом --json
