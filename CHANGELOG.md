@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/tihonko999/lerna-versions-dependant/compare/v2.1.4...v2.1.5) (2026-05-26)
+
+### Bug Fixes
+
+- [RLS-1] header 15:11 ([37bae9b](https://github.com/tihonko999/lerna-versions-dependant/commit/37bae9bc8b7d41db634155e95184a721dcf5a0ea))
+- [RLS-1] header 15:19 ([db647ec](https://github.com/tihonko999/lerna-versions-dependant/commit/db647ec2e9c448526f83e22a476a966af6caa807))
+
 ## [2.1.4](https://github.com/tihonko999/lerna-versions-dependant/compare/v2.1.3...v2.1.4) (2026-05-26)
 
 ### Bug Fixes
