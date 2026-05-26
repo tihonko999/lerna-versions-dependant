@@ -3,7 +3,7 @@
 
 __metadata:
   version: 8
-  cacheKey: 10c0
+  cacheKey: 10
 
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.28.6, @babel/code-frame@npm:^7.29.0":
   version: 7.29.0
@@ -7910,7 +7910,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"footer@npm:^1.0.7, footer@workspace:packages/footer":
+"footer@npm:^1.2.0, footer@workspace:packages/footer":
   version: 0.0.0-use.local
   resolution: "footer@workspace:packages/footer"
   dependencies:
@@ -8609,7 +8609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"header@npm:^1.0.5, header@workspace:packages/header":
+"header@npm:^1.2.0, header@workspace:packages/header":
   version: 0.0.0-use.local
   resolution: "header@workspace:packages/header"
   dependencies:
@@ -13772,8 +13772,8 @@ __metadata:
     "@types/react": "npm:^17.0.45"
     "@types/react-dom": "npm:^17.0.17"
     eslint: "npm:^8.15.0"
-    footer: "npm:^1.0.7"
-    header: "npm:^1.0.5"
+    footer: "npm:^1.2.0"
+    header: "npm:^1.2.0"
     jest: "npm:^27.4.3"
     react: "npm:18.1.0"
     react-dom: "npm:18.1.0"
