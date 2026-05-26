@@ -52,18 +52,14 @@ const main = async () => {
   const commitTitle = `chore: publish versions ${jiraIssueId}`;
   const commitDescription = createCommitDescription(changes);
 
-  console.log('tagName', tagName);
-  console.log('commitTitle', commitTitle);
-  console.log('commitDescription', commitDescription);
-
   // Делаем коммит
-  // await gitCreateCommit({ title: commitTitle, description: commitDescription });
+  await gitCreateCommit({ title: commitTitle, description: commitDescription });
 
   // Создаем один тег с именами всех пакетов и их новых версий
-  // await gitCreateTag(tagName);
+  await gitCreateTag(tagName);
 
   // Публикуем коммит и тег вместе за одну транзакцию - всё или ничего
-  // await gitPush(tagName);
+  await gitPush(tagName);
 };
 
 main();
