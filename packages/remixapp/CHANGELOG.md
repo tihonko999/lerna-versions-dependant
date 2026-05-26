@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.6](https://github.com/tihonko999/lerna-versions-dependant/compare/v2.1.5...v2.1.6) (2026-05-26)
+
+**Note:** Version bump only for package @app/remixapp
+
 ## [2.1.5](https://github.com/tihonko999/lerna-versions-dependant/compare/v2.1.4...v2.1.5) (2026-05-26)
 
 **Note:** Version bump only for package @app/remixapp
