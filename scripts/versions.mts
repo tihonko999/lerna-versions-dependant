@@ -1,19 +1,14 @@
+import { MAIN_BRANCH_NAME } from './versions.constants.mts';
 import {
-  // createTagName,
   getJiraIssueId,
   logError,
   isOnMainBranch,
   hasUncommitedChanges,
-  // createCommitDescription,
   gitPullOriginMain,
   gitFetchTags,
   getChangedPackages,
-  // gitCreateCommit,
-  // gitCreateTag,
-  // gitPush,
   lernaVersion,
 } from './versions.utils.mts';
-import { MAIN_BRANCH_NAME } from './versions.constants.mts';
 
 const main = async () => {
   // Проверка текущей ветки
@@ -47,28 +42,7 @@ const main = async () => {
   }
 
   // Запускаем lerna version
-  // const changes = await lernaVersion(`chore: publish versions ${jiraIssueId}`);
   await lernaVersion(`chore: publish versions ${jiraIssueId}`);
-
-  // Нет изменений пакетов
-  // if (!changes || changes.length === 0) {
-  //   logError('Нет изменений в пакетах для версионирования');
-  //   return;
-  // }
-
-  // Есть изменения
-  // const tagName = createTagName(changes);
-  // const commitTitle = `chore: publish versions ${jiraIssueId}`;
-  // const commitDescription = createCommitDescription(changes);
-
-  // Делаем коммит
-  // await gitCreateCommit({ title: commitTitle, description: commitDescription });
-
-  // Создаем один тег с именами всех пакетов и их новых версий
-  // await gitCreateTag(tagName);
-
-  // Публикуем коммит и тег вместе за одну транзакцию - всё или ничего
-  // await gitPush(tagName);
 };
 
 main();
