@@ -1,14 +1,12 @@
-import {Header} from 'header';
-import {Footer} from 'footer';
+import { Header } from '@app/header';
+import { Footer } from '@app/footer';
 
 export default function Index() {
-    return (
-        <>
-            <Header/>
-            <div>
-                Content!
-            </div>
-            <Footer/>
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <div>Content!</div>
+      <Footer />
+    </>
+  );
 }
