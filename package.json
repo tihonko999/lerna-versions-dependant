@@ -8,7 +8,8 @@
   "scripts": {
     "publish:versions:script": "sh ./scripts/release.sh",
     "publish:versions:manual": "yarn lerna version",
-    "publish:versions:execa": "yarn tsx ./scripts/versions.mts"
+    "publish:versions:execa": "yarn tsx ./scripts/versions.mts",
+    "v": "yarn tsx ./scripts/versions.mts"
   },
   "devDependencies": {
     "execa": "^9.6.1",

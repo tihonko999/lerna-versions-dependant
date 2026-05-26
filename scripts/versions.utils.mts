@@ -4,10 +4,9 @@ import { MAIN_BRANCH_NAME, COLOR_SYMBOLS } from './versions.constants.mts';
 
 // stdout - вывод lerna с флагом --json
 // https://github.com/lerna/lerna/tree/main/libs/commands/version#--json
-export const extractChanges = (stdout: string[]) => {
+export const extractChanges = (stdout: string) => {
   try {
-    // Первая строчка служебная - содержит имя файла и команду, ее исключаем
-    const result = JSON.parse(stdout.slice(1).join('\n'));
+    const result = JSON.parse(stdout);
     if (Array.isArray(result)) {
       return result as PackageChangeItem[];
     }
@@ -15,11 +14,14 @@ export const extractChanges = (stdout: string[]) => {
   return undefined;
 };
 
+// TODO: нужен ли нам ручной тег?
+// v1.2.0
 export const createTagName = (changes: PackageChangeItem[]) => {
   const tagName = changes.map((el) => [el.name, el.newVersion].join('@')).join('_');
   return tagName;
 };
 
+// TODO: нужен ли нам ручной коммит?
 export const createCommitDescription = (changes: PackageChangeItem[]) => {
   const commitDescription = changes.map((el) => ` - ${el.name}@${el.newVersion}`).join('\n');
   return commitDescription;
@@ -38,12 +40,8 @@ export const isOnMainBranch = async () => {
 };
 
 export const hasUncommitedChanges = async () => {
-  try {
-    await execa`git diff-index --quiet HEAD`;
-    return false;
-  } catch {
-    return true;
-  }
+  const { stdout } = await execa`git status --porcelain`;
+  return Boolean(stdout.trim());
 };
 
 export const gitPullOriginMain = async () => {
@@ -58,25 +56,29 @@ export const gitPullOriginMain = async () => {
 
 export const gitFetchTags = async () => {
   logInfo('Обновляем теги');
-  const promise = execa`git fetch --tags`;
+  // const promise = execa`git fetch --tags`;
   // Направляем вывод git в консоль
-  promise.stdout.pipe(process.stdout);
-  promise.stderr.pipe(process.stderr);
-  await promise;
+  // promise.stdout.pipe(process.stdout);
+  // promise.stderr.pipe(process.stderr);
+  // await promise;
+  // Удаляем все локальные теги
+  await execa(`git tag -d $(git tag -l)`, { shell: true });
+  // Подтягиваем все удаленные теги
+  await execa`git fetch --tags --quiet`;
   logSuccess('Обновили теги');
 };
 
 export const lernaVersion = async () => {
-  const promise = execa({
-    lines: true,
-  })`yarn lerna version
+  const promise = execa`
+    yarn lerna version
       --conventional-commits
       --conventional-graduate
       --include-merged-tags
       --no-git-tag-version
       --json
       --yes
-      --allow-branch ${MAIN_BRANCH_NAME}`;
+      --allow-branch ${MAIN_BRANCH_NAME}
+      `;
   // Направляем вывод lerna в консоль
   promise.stdout.pipe(process.stdout);
   promise.stderr.pipe(process.stderr);
@@ -105,6 +107,8 @@ export const gitCreateTag = async (tagName: string) => {
 };
 
 export const gitPush = async (tagName: string) => {
+  // --atomic - отправляем вместе (или всё или ничего) коммит и тег
+  // страхуемся от пуша коммит без тега или тега без коммита
   const promise = execa`git push --atomic origin ${MAIN_BRANCH_NAME} ${tagName}`;
   promise.stdout.pipe(process.stdout);
   promise.stderr.pipe(process.stderr);
