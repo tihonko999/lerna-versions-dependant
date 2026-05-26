@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/tihonko999/lerna-versions-dependant/compare/v1.2.2...v1.3.0) (2026-05-26)
+
+
+### Features
+
+* [RLS-1] header 14:28 ([b0f307b](https://github.com/tihonko999/lerna-versions-dependant/commit/b0f307b6c4ad8ff4acf455ad87b86e7389dc9d32))
+
+
+
+
+
 ## [1.2.1](https://github.com/tihonko999/lerna-versions-dependant/compare/v1.2.0...v1.2.1) (2026-05-26)
 
 **Note:** Version bump only for package @app/header
