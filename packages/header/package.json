@@ -1,5 +1,5 @@
 {
-  "name": "header",
+  "name": "@app/header",
   "version": "1.2.0",
   "private": true,
   "main": "dist/index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "footer",
+  "name": "@app/footer",
   "version": "1.2.0",
   "private": true,
   "main": "dist/index.js",
