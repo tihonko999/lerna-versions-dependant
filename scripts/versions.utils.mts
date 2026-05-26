@@ -17,9 +17,8 @@ export const extractChanges = (stdout: string) => {
 // TODO: нужен ли нам ручной тег?
 // v1.2.0
 export const createTagName = (changes: PackageChangeItem[]) => {
+  // TODO: если нужен ручной тег - доработать - кидать ошибку если нет изменений
   return 'v' + changes[0].newVersion;
-  // const tagName = changes.map((el) => [el.name, el.newVersion].join('@')).join('_');
-  // return tagName;
 };
 
 // TODO: нужен ли нам ручной коммит?
@@ -47,6 +46,7 @@ export const hasUncommitedChanges = async () => {
 
 export const gitPullOriginMain = async () => {
   logInfo(`Обновляем ветку ${MAIN_BRANCH_NAME}`);
+  // TODO: нужно ли к консоль направлять вывод?
   const promise = execa`git pull origin ${MAIN_BRANCH_NAME}`;
   // Направляем вывод git в консоль
   promise.stdout.pipe(process.stdout);
@@ -57,11 +57,6 @@ export const gitPullOriginMain = async () => {
 
 export const gitFetchTags = async () => {
   logInfo('Обновляем теги');
-  // const promise = execa`git fetch --tags`;
-  // Направляем вывод git в консоль
-  // promise.stdout.pipe(process.stdout);
-  // promise.stderr.pipe(process.stderr);
-  // await promise;
   // Удаляем все локальные теги
   await execa(`git tag -d $(git tag -l)`, { shell: true });
   // Подтягиваем все удаленные теги
@@ -69,23 +64,25 @@ export const gitFetchTags = async () => {
   logSuccess('Обновили теги');
 };
 
-export const lernaVersion = async () => {
+export const lernaVersion = async (commitMessage: string) => {
+  // --no-git-tag-version
   const promise = execa`
     yarn lerna version
       --conventional-commits
       --conventional-graduate
       --include-merged-tags
-      --no-git-tag-version
-      --json
       --yes
+      --json
       --allow-branch ${MAIN_BRANCH_NAME}
+      --message ${commitMessage}
       `;
   // Направляем вывод lerna в консоль
   promise.stdout.pipe(process.stdout);
   promise.stderr.pipe(process.stderr);
 
-  const { stdout } = await promise;
-  return extractChanges(stdout);
+  await promise;
+  // const { stdout } = await promise;
+  // return extractChanges(stdout);
 };
 
 export const gitCreateCommit = async (params: { title: string; description: string }) => {

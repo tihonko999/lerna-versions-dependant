@@ -7,10 +7,10 @@
       "conventionalCommits": true,
       "conventionalGraduate": true,
       "includeMergedTags": true,
-      "gitTagVersion": false,
+      "gitTagVersion": true,
       "message": "chore: publish versions",
       "changelog": true,
-      "push": false,
+      "push": true,
       "json": true,
       "yes": true,
       "allowBranch": "main"
