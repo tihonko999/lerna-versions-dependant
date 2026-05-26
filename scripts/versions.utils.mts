@@ -17,8 +17,9 @@ export const extractChanges = (stdout: string) => {
 // TODO: нужен ли нам ручной тег?
 // v1.2.0
 export const createTagName = (changes: PackageChangeItem[]) => {
-  const tagName = changes.map((el) => [el.name, el.newVersion].join('@')).join('_');
-  return tagName;
+  return 'v' + changes[0].newVersion;
+  // const tagName = changes.map((el) => [el.name, el.newVersion].join('@')).join('_');
+  // return tagName;
 };
 
 // TODO: нужен ли нам ручной коммит?
