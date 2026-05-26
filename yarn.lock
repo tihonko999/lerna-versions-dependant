@@ -5,7 +5,7 @@ __metadata:
   version: 8
   cacheKey: 10
 
-"@app/footer@workspace:^1.2.0, @app/footer@workspace:packages/footer":
+"@app/footer@workspace:^1.2.1, @app/footer@workspace:packages/footer":
   version: 0.0.0-use.local
   resolution: "@app/footer@workspace:packages/footer"
   dependencies:
@@ -24,7 +24,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@app/header@workspace:^1.2.0, @app/header@workspace:packages/header":
+"@app/header@workspace:^1.2.1, @app/header@workspace:packages/header":
   version: 0.0.0-use.local
   resolution: "@app/header@workspace:packages/header"
   dependencies:
@@ -47,8 +47,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@app/remixapp@workspace:packages/remixapp"
   dependencies:
-    "@app/footer": "workspace:^1.2.0"
-    "@app/header": "workspace:^1.2.0"
+    "@app/footer": "workspace:^1.2.1"
+    "@app/header": "workspace:^1.2.1"
     "@remix-run/dev": "npm:^1.5.1"
     "@remix-run/eslint-config": "npm:^1.5.1"
     "@remix-run/node": "npm:^1.5.1"
