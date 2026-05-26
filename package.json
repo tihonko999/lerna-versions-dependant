@@ -12,8 +12,8 @@
     "v": "yarn ts-node ./scripts/versions.mts"
   },
   "devDependencies": {
-    "execa": "^9.6.1",
     "@types/node": "^20.19.5",
+    "execa": "^9.6.1",
     "lerna": "^8.2.4",
     "prettier": "^3.8.0",
     "ts-node": "^10.0.0",
