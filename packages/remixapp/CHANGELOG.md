@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/tihonko999/lerna-versions-dependant/compare/v2.1.3...v2.1.4) (2026-05-26)
+
+### Bug Fixes
+
+- [RLS-1] remixapp 14:55 ([e36ecd7](https://github.com/tihonko999/lerna-versions-dependant/commit/e36ecd77fb01c5cec9212e6f10a9f01e82915dfe))
+
 ## [2.1.3](https://github.com/tihonko999/lerna-versions-dependant/compare/v2.1.2...v2.1.3) (2026-05-26)
 
 ### Bug Fixes
